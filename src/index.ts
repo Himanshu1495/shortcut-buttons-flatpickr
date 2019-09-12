@@ -167,8 +167,9 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
 
                 wrapper.appendChild(buttons);
 
-                if (calendarExpansion() === true) {
+                if (calendarExpansion() === true && typeof fp.calendarContainer !== 'undefined') {
                   const generatedCalendar = fp.calendarContainer;
+
                   generatedCalendar.setAttribute('style', 'width:550px;');
 
                   const flatpickrMonths = generatedCalendar.getElementsByClassName('flatpickr-months')[0];
@@ -188,7 +189,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
 
                   wrapper.setAttribute('style', 'background-color:#FFFFFF');
 
-                } else {
+                } else if (typeof fp.calendarContainer !== 'undefined') {
                   fp.calendarContainer.appendChild(wrapper);
                 }
                 wrapper.addEventListener('click', onClick);

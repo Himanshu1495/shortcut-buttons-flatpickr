@@ -243,7 +243,7 @@ function ShortcutButtonsPlugin(config) {
                     fp.pluginElements.push(button);
                 });
                 wrapper.appendChild(buttons);
-                if (calendarExpansion() === true) {
+                if (calendarExpansion() === true && typeof fp.calendarContainer !== 'undefined') {
                     var generatedCalendar = fp.calendarContainer;
                     generatedCalendar.setAttribute('style', 'width:550px;');
                     var flatpickrMonths = generatedCalendar.getElementsByClassName('flatpickr-months')[0];
@@ -256,7 +256,7 @@ function ShortcutButtonsPlugin(config) {
                     innerContainer.appendChild(lcontainer);
                     wrapper.setAttribute('style', 'background-color:#FFFFFF');
                 }
-                else {
+                else if (typeof fp.calendarContainer !== 'undefined') {
                     fp.calendarContainer.appendChild(wrapper);
                 }
                 wrapper.addEventListener('click', onClick);
