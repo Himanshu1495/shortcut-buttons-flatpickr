@@ -36,6 +36,7 @@
     "rules": {
         "interface-over-type-literal": false,
         "no-namespace": false,
+        "no-console": false,
         "quotemark": [
             true,
             "single"

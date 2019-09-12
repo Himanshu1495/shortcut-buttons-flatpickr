@@ -1,0 +1,43 @@
+<!doctype html>
+<!doctype html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.2/flatpickr.js"></script>
+    <script type="text/javascript" src="../../../dist/shortcut-buttons-flatpickr.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.2/flatpickr.min.css" rel="stylesheet">
+    <link href="../../../dist/themes/light.min.css" rel="stylesheet">
+    <style>
+        *:focus {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="calendar" />
+</body>
+<script>
+  flatpickr(
+      document.querySelector('#calendar'),
+      {
+        plugins: [
+          ShortcutButtonsPlugin({
+            button: [
+              {
+                label: "Beginning Of Time",
+              }
+            ],
+            expand: true,
+            onClick: (index, fp) => {
+              fp.setDate("1970/01/01 00:00");
+            }
+          })
+        ]
+      }
+  );
+</script>
+
+</html>

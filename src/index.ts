@@ -20,6 +20,7 @@ export namespace ShortcutButtonsFlatpickr {
         label?: string,
         onClick?: OnClickSignature | OnClickSignature[],
         theme?: string,
+        expand?: boolean,
     };
 }
 
@@ -123,6 +124,14 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
             );
         }
 
+        function calendarExpansion() {
+          if (typeof cfg.expand === 'boolean') {
+            return cfg.expand;
+          } else {
+            return false;
+          }
+        }
+
         return {
             /**
              * Initialize plugin.
@@ -158,8 +167,30 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
 
                 wrapper.appendChild(buttons);
 
-                fp.calendarContainer.appendChild(wrapper);
+                if (calendarExpansion() === true) {
+                  const generatedCalendar = fp.calendarContainer;
+                  generatedCalendar.setAttribute('style', 'width:550px;');
 
+                  const flatpickrMonths = generatedCalendar.getElementsByClassName('flatpickr-months')[0];
+
+                  flatpickrMonths.getElementsByClassName(
+                    'flatpickr-current-month')[0].setAttribute('style', 'width:179px;');
+
+                  flatpickrMonths.getElementsByClassName(
+                    'flatpickr-next-month')[0].setAttribute('style', 'margin-right:245px;');
+
+                  const lcontainer = document.createElement('div');
+                  lcontainer.classList.add('flatpickr-lContainer');
+                  lcontainer.appendChild(wrapper);
+
+                  const innerContainer = generatedCalendar.getElementsByClassName('flatpickr-innerContainer')[0];
+                  innerContainer.appendChild(lcontainer);
+
+                  wrapper.setAttribute('style', 'background-color:#FFFFFF');
+
+                } else {
+                  fp.calendarContainer.appendChild(wrapper);
+                }
                 wrapper.addEventListener('click', onClick);
                 wrapper.addEventListener('keydown', onKeyDown);
             },
