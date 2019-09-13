@@ -245,10 +245,10 @@ function ShortcutButtonsPlugin(config) {
                 wrapper.appendChild(buttons);
                 if (calendarExpansion() === true && typeof fp.calendarContainer !== 'undefined') {
                     var generatedCalendar = fp.calendarContainer;
-                    generatedCalendar.setAttribute('style', 'width:550px;');
+                    generatedCalendar.setAttribute('style', 'width:500px;');
                     var flatpickrMonths = generatedCalendar.getElementsByClassName('flatpickr-months')[0];
                     flatpickrMonths.getElementsByClassName('flatpickr-current-month')[0].setAttribute('style', 'width:179px;');
-                    flatpickrMonths.getElementsByClassName('flatpickr-next-month')[0].setAttribute('style', 'margin-right:245px;');
+                    flatpickrMonths.getElementsByClassName('flatpickr-next-month')[0].setAttribute('style', 'margin-right:200px;');
                     var lcontainer = document.createElement('div');
                     lcontainer.classList.add('flatpickr-lContainer');
                     lcontainer.appendChild(wrapper);

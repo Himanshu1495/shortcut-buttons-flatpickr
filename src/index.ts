@@ -170,7 +170,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
                 if (calendarExpansion() === true && typeof fp.calendarContainer !== 'undefined') {
                   const generatedCalendar = fp.calendarContainer;
 
-                  generatedCalendar.setAttribute('style', 'width:550px;');
+                  generatedCalendar.setAttribute('style', 'width:500px;');
 
                   const flatpickrMonths = generatedCalendar.getElementsByClassName('flatpickr-months')[0];
 
@@ -178,7 +178,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
                     'flatpickr-current-month')[0].setAttribute('style', 'width:179px;');
 
                   flatpickrMonths.getElementsByClassName(
-                    'flatpickr-next-month')[0].setAttribute('style', 'margin-right:245px;');
+                    'flatpickr-next-month')[0].setAttribute('style', 'margin-right:200px;');
 
                   const lcontainer = document.createElement('div');
                   lcontainer.classList.add('flatpickr-lContainer');
